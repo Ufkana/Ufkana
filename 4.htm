@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Управление объектами формы</title>
+<link rel="icon" href="ava.png" type="image/png">
+    <style>
+        .backgrounds {
+            background-image: url('25.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* чтобы абсолютные элементы ориентировались по body */
+        }
+
+        /* Кнопка слева сверху */
+        .button-link2 {
+            position: absolute;  /* фиксируем */
+            top: 20px;           /* отступ сверху */
+            left: 20px;          /* отступ слева */
+            z-index: 999;        /* чтобы была поверх */
+            
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #900080;
+            color: #DA70D9;
+            text-decoration: none;
+            border-radius: 13px;
+            cursor: pointer;
+        }
+
+        form {
+            background-image: url('pup.gif');
+            background-size: cover;
+            background-position: center;
+
+            padding: 25px;
+            border-radius: 15px;
+            border: 3px solid #900080;
+
+            width: 300px;
+            text-align: center;
+
+            color: pink;
+            font-weight: bold;
+        }
+
+        .button-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #900080;
+            color: #DA70D9;
+            text-decoration: none;
+            border-radius: 13px;
+            cursor: pointer;
+        }
+
+        input {
+            width: 90%;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body class="backgrounds">
+
+    <a href="3.htm" class="button-link2">Вернуться обратно</a>
+
+    <form name="myForm">
+        <label>Ваш Никнейм:</label><br>
+        <input type="text" name="name"><br><br>
+
+        <label>Ваша Почта:</label><br>
+        <input type="text" name="email"><br><br>
+
+        <a href="#" class="button-link" onclick="return validateForm();">Авторизоваться</a>
+
+<script>
+function validateForm() {
+    let name = document.forms["myForm"]["name"].value.trim();
+    let email = document.forms["myForm"]["email"].value.trim();
+
+    if (name === "" || email === "") {
+        alert("Пожалуйста, заполните Никнейм и Почту.");
+        return false; // остановить переход
+    }
+
+    // Если всё заполнено → перейти на сайт
+    window.location.href = "https://ufkana.github.io/AnimeWife/";
+    return false;
+}
+</script>
+
+    </form>
+
+</body>
+</html>
+
